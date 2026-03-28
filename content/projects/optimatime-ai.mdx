@@ -1,0 +1,38 @@
+---
+title: OptimaTime AI
+---
+
+## Problem
+
+Knowledge workers constantly re-prioritize tasks as deadlines, effort, and energy constraints change. Static to-do lists are fast to create but weak at producing realistic execution plans.
+
+## Solution
+
+OptimaTime AI uses a hybrid approach: FastAPI APIs + React/Vite frontend, a scikit-learn priority model, and a deterministic scheduling engine that turns ranked tasks into calendar-ready plans.
+
+## Architecture
+
+- React + Vite client for task input, planning views, and schedule adjustments.
+- FastAPI backend with versioned routes for auth, tasks, planning, notes, and feedback.
+- JWT-based authentication with access tokens and refresh-cookie flow.
+- SQLite persistence with Alembic migrations for controlled schema evolution.
+- ML package for feature encoding and `GradientBoostingRegressor` priority scoring.
+- Heuristic scheduler that allocates 30-minute slots with deadline, preference, energy, and conflict constraints.
+
+## Key Decisions
+
+- Separated ML scoring from scheduling so ranking logic and allocation logic can evolve independently.
+- Used deterministic heuristics instead of MILP/CP-SAT to keep behavior explainable and lightweight.
+- Introduced feedback-driven bias terms to personalize scheduling without retraining on every interaction.
+
+## Results / Metrics
+
+- Generates continuous priority scores from task/user features and feeds them directly into planning.
+- Produces conflict-aware schedules across discrete 30-minute slots before task deadlines.
+- Stores plan history and feedback events to support iteration and future model improvements.
+- Delivers full-stack engineering depth: frontend UX, backend APIs, auth, migrations, and ML integration.
+
+## What this demonstrates
+
+- End-to-end architecture thinking across product, data, and model boundaries.
+- Ability to balance measurable ML decision logic with deterministic scheduling guarantees.

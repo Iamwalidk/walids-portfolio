@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="640" stroke="#0a0a0a"/>
+  <rect x="120" y="140" width="220" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="490" y="140" width="220" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="860" y="140" width="220" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="305" y="430" width="220" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="675" y="430" width="220" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <line x1="340" y1="200" x2="490" y2="200" stroke="#0a0a0a"/>
+  <line x1="710" y1="200" x2="860" y2="200" stroke="#0a0a0a"/>
+  <line x1="600" y1="260" x2="415" y2="430" stroke="#0a0a0a"/>
+  <line x1="600" y1="260" x2="785" y2="430" stroke="#0a0a0a"/>
+  <text x="142" y="205" font-size="16" font-family="monospace" fill="#0a0a0a">React / Vite Client</text>
+  <text x="532" y="205" font-size="16" font-family="monospace" fill="#0a0a0a">FastAPI API</text>
+  <text x="884" y="205" font-size="16" font-family="monospace" fill="#0a0a0a">Priority Model</text>
+  <text x="330" y="495" font-size="16" font-family="monospace" fill="#0a0a0a">Scheduler Engine</text>
+  <text x="694" y="495" font-size="16" font-family="monospace" fill="#0a0a0a">SQLite + Alembic</text>
+  <text x="878" y="228" font-size="13" font-family="monospace" fill="#4a4a4a">GradientBoostingRegressor</text>
+  <text x="688" y="518" font-size="13" font-family="monospace" fill="#4a4a4a">tasks, plans, feedback</text>
+</svg>

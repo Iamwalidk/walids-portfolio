@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="640" stroke="#0a0a0a"/>
+  <rect x="100" y="100" width="500" height="560" fill="#fafafa" stroke="#e6e6e6"/>
+  <rect x="640" y="100" width="460" height="560" fill="#fafafa" stroke="#e6e6e6"/>
+  <text x="120" y="140" font-size="18" font-family="monospace" fill="#0a0a0a">Input Image</text>
+  <text x="660" y="140" font-size="18" font-family="monospace" fill="#0a0a0a">Top Predictions</text>
+  <rect x="680" y="190" width="420" height="60" stroke="#0a0a0a" fill="#ffffff"/>
+  <rect x="680" y="270" width="380" height="60" stroke="#0a0a0a" fill="#ffffff"/>
+  <rect x="680" y="350" width="320" height="60" stroke="#0a0a0a" fill="#ffffff"/>
+  <text x="700" y="230" font-size="16" font-family="monospace" fill="#0a0a0a">Labrador Retriever 0.91</text>
+  <text x="700" y="310" font-size="16" font-family="monospace" fill="#0a0a0a">Golden Retriever 0.05</text>
+  <text x="700" y="390" font-size="16" font-family="monospace" fill="#0a0a0a">Beagle 0.03</text>
+</svg>

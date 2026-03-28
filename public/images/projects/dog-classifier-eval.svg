@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="640" stroke="#0a0a0a"/>
+  <rect x="100" y="100" width="500" height="560" fill="#fafafa" stroke="#e6e6e6"/>
+  <rect x="640" y="100" width="460" height="260" fill="#fafafa" stroke="#e6e6e6"/>
+  <rect x="640" y="400" width="460" height="260" fill="#fafafa" stroke="#e6e6e6"/>
+  <text x="120" y="140" font-size="18" font-family="monospace" fill="#0a0a0a">Transfer Learning Pipeline</text>
+  <text x="660" y="140" font-size="18" font-family="monospace" fill="#0a0a0a">Validation Snapshot</text>
+  <text x="660" y="440" font-size="18" font-family="monospace" fill="#0a0a0a">Class Mapping + Inference Prep</text>
+  <text x="120" y="200" font-size="16" font-family="monospace" fill="#0a0a0a">1. Augment training images</text>
+  <text x="120" y="250" font-size="16" font-family="monospace" fill="#0a0a0a">2. Fine-tune MobileNetV2 head</text>
+  <text x="120" y="300" font-size="16" font-family="monospace" fill="#0a0a0a">3. Export .h5 model artifact</text>
+  <text x="120" y="350" font-size="16" font-family="monospace" fill="#0a0a0a">4. Persist index_to_class.json</text>
+  <text x="660" y="210" font-size="16" font-family="monospace" fill="#0a0a0a">Notebook tracks validation loss</text>
+  <text x="660" y="250" font-size="16" font-family="monospace" fill="#0a0a0a">and top predictions before export.</text>
+  <rect x="680" y="285" width="360" height="14" fill="#0a0a0a"/>
+  <rect x="680" y="315" width="290" height="14" fill="#4a4a4a"/>
+  <text x="660" y="500" font-size="16" font-family="monospace" fill="#0a0a0a">OpenCV resize to 224x224</text>
+  <text x="660" y="540" font-size="16" font-family="monospace" fill="#0a0a0a">normalize pixels + batch dimension</text>
+  <text x="660" y="580" font-size="16" font-family="monospace" fill="#0a0a0a">map predicted index back to breed</text>
+</svg>

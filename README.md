@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+﻿# Walid Kaddouri Portfolio
 
-## Getting Started
+Production-ready engineering portfolio for ML/AI/Data roles, built with Next.js App Router, TypeScript, Tailwind, shadcn/ui, and MDX.
 
-First, run the development server:
+## Stack
+
+- Next.js (App Router)
+- TypeScript (strict)
+- Tailwind CSS (v4)
+- shadcn/ui primitives
+- MDX case-study content (`content/projects/*.mdx`)
+- Vitest (basic smoke/unit tests)
+
+## Key Product Features
+
+- Monochrome, docs-style UI with sticky left sidebar and recruiter-friendly structure.
+- `/overview`, `/projects`, `/projects/[slug]`, `/experience`, `/resume`, `/contact`, custom `404`.
+- Command palette (`Ctrl+K` / `Cmd+K`) with route/project navigation and recruiter actions.
+- Keyboard shortcuts:
+  - `g p` -> projects
+  - `g o` -> overview
+  - `g r` -> resume
+  - `/` -> focus project search on `/projects`
+- Recruiter mode toggle (`Recruiter Summary` vs `Detailed View`) with localStorage persistence.
+- Project case studies include project-specific system visuals, key decisions/tradeoffs, and evidence panels.
+- Contact page uses direct email and profile links instead of a web form.
+- SEO setup: metadata per page, OpenGraph/Twitter metadata, sitemap, robots.
+- CI: install -> lint -> typecheck -> test -> build.
+
+## Folder Highlights
+
+- `app/` routes and metadata
+- `components/` reusable UI + feature components
+- `content/projects/index.ts` typed project model
+- `content/projects/*.mdx` project case-study content
+- `lib/` shared utilities, config, MDX loader, recruiter mode context, changelog, and experience data
+- `tests/` Vitest coverage for project-model logic
+- `.github/workflows/ci.yml` CI pipeline
+
+## Run Locally
+
+1. Install Node LTS (recommended: current `lts/*` used in CI).
+2. Install deps:
+
+```bash
+npm install
+```
+
+3. Start dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Quality checks:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment
 
-## Learn More
+Optimized for Vercel deployment out of the box.
 
-To learn more about Next.js, take a look at the following resources:
+### GitHub
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Use the repository slug `walids-portfolio` for a clean public URL and predictable Vercel project naming.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Vercel
 
-## Deploy on Vercel
+1. Import the GitHub repository into Vercel.
+2. Keep the detected framework preset as `Next.js`.
+3. No environment variables are required for the current version of this site.
+4. Deploy directly from the default branch for automatic production releases on every push.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Data Layer Note
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`OptimaTime AI` is documented as using **SQLite with Alembic migrations**, matching the case-study content and architecture visuals in this repo.
+
+## Resume File
+
+`public/walid-kaddouri-cv.pdf` is included as a placeholder so download/preview flows work. Replace it with your final CV before publishing.

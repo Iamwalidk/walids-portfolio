@@ -1,0 +1,36 @@
+---
+title: Dog Breed Classifier
+---
+
+## Problem
+
+Computer-vision portfolio projects often end at a notebook, which makes it hard to evaluate real usability. Recruiters and users need a clear upload-to-prediction workflow, not only training code.
+
+## Solution
+
+Built a Flask web app around a fine-tuned MobileNetV2 classifier using TensorFlow/Keras and OpenCV preprocessing, so users can upload an image and immediately see predicted breed plus confidence.
+
+## Architecture
+
+- Training notebook with transfer learning on MobileNetV2 and augmentation-based data pipeline.
+- Saved model artifact (`.h5`) plus `index_to_class.json` mapping for reproducible inference.
+- Flask routes for index and `/predict` upload handling.
+- OpenCV preprocessing in inference path (read, resize to 224x224, normalize, batch dimension).
+- HTML/CSS/JS frontend for upload and prediction result display.
+
+## Key Decisions
+
+- Chose MobileNetV2 transfer learning to reach a strong baseline quickly with manageable compute.
+- Served predictions through Flask to keep deployment flow simple and easy to review.
+- Returned confidence alongside label to improve interpretability for end users.
+
+## Results / Metrics
+
+- Ships complete notebook-to-product flow: training artifacts, model serving, and user-facing UI.
+- Supports practical validation by exposing top prediction confidence in the app response.
+- Keeps inference behavior deterministic with explicit preprocessing before model execution.
+
+## What this demonstrates
+
+- Ability to operationalize CV models beyond experimentation.
+- Solid engineering handoff from model training into a maintainable web inference app.
