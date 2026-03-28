@@ -1,4 +1,3 @@
-﻿// Updated global SEO metadata to include Walid's real profile/contact references.
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 
@@ -34,7 +33,14 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   authors: [{ name: "Walid Kaddouri" }],
   creator: "Walid Kaddouri",
-  keywords: ["Walid Kaddouri", "ML Engineer", "AI Engineer", "Data Engineer", "Python", "Computer Vision"],
+  keywords: [
+    "Walid Kaddouri",
+    "ML Engineer",
+    "AI Engineer",
+    "Data Engineer",
+    "Python",
+    "Computer Vision",
+  ],
   alternates: {
     canonical: "/overview",
   },
@@ -61,7 +67,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased`}>

@@ -1,6 +1,7 @@
-﻿// Updated contact and social URLs to Walid's real LinkedIn/email/GitHub profile values as specified.
 import type { Project } from "@/content/projects";
 import { projects } from "@/content/projects";
+
+const defaultSiteUrl = "https://walids-portfolio.vercel.app";
 
 export const siteConfig = {
   name: "Walid Kaddouri",
@@ -8,16 +9,17 @@ export const siteConfig = {
   logo: "/images/brand/logo.png",
   description:
     "Engineering-focused portfolio for ML, AI, and Data roles. Projects include architecture decisions, measurable outcomes, and production-minded tradeoffs.",
-  url: "https://walid-kaddouri.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl,
   email: "kaddowalidpro@gmail.com",
   github: "https://github.com/Iamwalidk",
-  linkedin: "https://www.linkedin.com/in/walid-kaddouri-917b42260/?trk=opento_sprofile_details",
+  linkedin: "https://www.linkedin.com/in/walid-kaddouri-917b42260/",
   version: "v1.0.0",
+  lastModified: "2026-03-28",
   statusBlock: {
     status: "Open to ML / AI / Data roles",
     location: "Warsaw",
     stack: "Python • TypeScript • SQL",
-    updated: "2026-02",
+    updated: "2026-03",
   },
 } as const;
 
