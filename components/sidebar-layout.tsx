@@ -41,6 +41,7 @@ function SidebarNav({ pathname, onNavigate }: { pathname: string; onNavigate?: (
   const [projectsOpen, setProjectsOpen] = useState(true);
 
   const overviewItem = useMemo(() => navItems.find((item) => item.href === "/overview"), []);
+  const projectsItem = useMemo(() => navItems.find((item) => item.href === "/projects"), []);
   const rootItems = useMemo(
     () => navItems.filter((item) => item.href !== "/projects" && item.href !== "/overview"),
     [],
@@ -77,7 +78,7 @@ function SidebarNav({ pathname, onNavigate }: { pathname: string; onNavigate?: (
               isActive("/projects") ? "bg-[var(--surface)]" : "hover:bg-[var(--surface)]",
             )}
           >
-            <span>projects</span>
+            <span>{projectsItem?.label ?? "Projects"}</span>
             <span className="font-mono text-[10px] text-[var(--muted)]">{projectsOpen ? "-" : "+"}</span>
           </button>
 
@@ -85,7 +86,7 @@ function SidebarNav({ pathname, onNavigate }: { pathname: string; onNavigate?: (
             <ul className="space-y-1 pl-3">
               <li>
                 <Link href="/projects" onClick={onNavigate} className={navLinkClass("/projects")}>
-                  all projects
+                  All Projects
                 </Link>
               </li>
               {projects.map((project) => (

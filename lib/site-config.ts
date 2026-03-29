@@ -29,11 +29,11 @@ export type NavItem = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "overview", href: "/overview" },
-  { label: "projects", href: "/projects" },
-  { label: "experience", href: "/experience" },
-  { label: "resume", href: "/resume" },
-  { label: "contact", href: "/contact" },
+  { label: "Overview", href: "/overview" },
+  { label: "Projects", href: "/projects" },
+  { label: "Experience", href: "/experience" },
+  { label: "Resume", href: "/resume" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const keyboardRoutes = {
