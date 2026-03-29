@@ -7,6 +7,7 @@ export const siteConfig = {
   name: "Walid Kaddouri",
   siteTitle: "Walid Kaddouri | ML/AI/Data Engineer",
   logo: "/images/brand/logo.png",
+  resumePath: "/walid-kaddouri-ml-resume-2026-03-29.pdf",
   description:
     "Engineering-focused portfolio for ML, AI, and Data roles. Projects include architecture decisions, measurable outcomes, and production-minded tradeoffs.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl,
@@ -14,7 +15,7 @@ export const siteConfig = {
   github: "https://github.com/Iamwalidk",
   linkedin: "https://www.linkedin.com/in/walid-kaddouri-917b42260/",
   version: "v1.0.0",
-  lastModified: "2026-03-28",
+  lastModified: "2026-03-29",
   statusBlock: {
     status: "Open to ML / AI / Data roles",
     location: "Warsaw",

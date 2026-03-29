@@ -44,7 +44,7 @@ export default function OverviewPage() {
 
           <div className="flex flex-wrap gap-3">
             <Button asChild className="h-10 rounded-sm bg-black px-4 text-xs uppercase tracking-wide text-white hover:bg-black/90">
-              <Link href="/walid-kaddouri-cv.pdf" target="_blank" rel="noreferrer">
+              <Link href={siteConfig.resumePath} target="_blank" rel="noreferrer">
                 Download CV
               </Link>
             </Button>

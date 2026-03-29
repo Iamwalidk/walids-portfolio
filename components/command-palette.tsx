@@ -92,7 +92,7 @@ export function CommandPalette() {
           <CommandSeparator />
 
           <CommandGroup heading="Actions">
-            <CommandItem onSelect={() => openExternal("/walid-kaddouri-cv.pdf")}>Download CV</CommandItem>
+            <CommandItem onSelect={() => openExternal(siteConfig.resumePath)}>Download CV</CommandItem>
             <CommandItem onSelect={copyEmail}>{copied ? "Email copied" : "Copy email"}</CommandItem>
             <CommandItem onSelect={() => openExternal(siteConfig.linkedin)}>Open LinkedIn</CommandItem>
             <CommandItem onSelect={() => openExternal(siteConfig.github)}>Open GitHub</CommandItem>

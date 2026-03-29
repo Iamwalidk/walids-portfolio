@@ -15,7 +15,7 @@ const directLinks = [
   },
   {
     label: "Resume PDF",
-    href: "/walid-kaddouri-cv.pdf",
+    href: siteConfig.resumePath,
     description: "Quick download for a concise summary of experience, stack, and impact.",
   },
 ];
