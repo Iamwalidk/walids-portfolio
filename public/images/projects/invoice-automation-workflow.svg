@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="640" stroke="#0a0a0a"/>
+  <rect x="80" y="100" width="300" height="220" fill="#fafafa" stroke="#e6e6e6"/>
+  <rect x="450" y="100" width="300" height="220" fill="#fafafa" stroke="#e6e6e6"/>
+  <rect x="820" y="100" width="300" height="220" fill="#fafafa" stroke="#e6e6e6"/>
+  <rect x="80" y="400" width="300" height="220" fill="#fafafa" stroke="#e6e6e6"/>
+  <rect x="450" y="400" width="300" height="220" fill="#fafafa" stroke="#e6e6e6"/>
+  <rect x="820" y="400" width="300" height="220" fill="#fafafa" stroke="#e6e6e6"/>
+  <line x1="380" y1="210" x2="450" y2="210" stroke="#0a0a0a"/>
+  <line x1="750" y1="210" x2="820" y2="210" stroke="#0a0a0a"/>
+  <line x1="600" y1="320" x2="600" y2="400" stroke="#0a0a0a"/>
+  <line x1="380" y1="510" x2="450" y2="510" stroke="#0a0a0a"/>
+  <line x1="750" y1="510" x2="820" y2="510" stroke="#0a0a0a"/>
+  <text x="102" y="145" font-size="18" font-family="monospace" fill="#0a0a0a">Invoice Intake</text>
+  <text x="472" y="145" font-size="18" font-family="monospace" fill="#0a0a0a">Document Validation</text>
+  <text x="842" y="145" font-size="18" font-family="monospace" fill="#0a0a0a">Supplier Checks</text>
+  <text x="102" y="445" font-size="18" font-family="monospace" fill="#0a0a0a">Approval State</text>
+  <text x="472" y="445" font-size="18" font-family="monospace" fill="#0a0a0a">Failure Recovery</text>
+  <text x="842" y="445" font-size="18" font-family="monospace" fill="#0a0a0a">Audit Trail</text>
+  <text x="102" y="190" font-size="15" font-family="monospace" fill="#4a4a4a">Upload or email intake</text>
+  <text x="102" y="220" font-size="15" font-family="monospace" fill="#4a4a4a">Hash and retry handling</text>
+  <text x="472" y="190" font-size="15" font-family="monospace" fill="#4a4a4a">Magic-byte PDF checks</text>
+  <text x="472" y="220" font-size="15" font-family="monospace" fill="#4a4a4a">Extraction and validation</text>
+  <text x="842" y="190" font-size="15" font-family="monospace" fill="#4a4a4a">Tax ID, IBAN, domain</text>
+  <text x="842" y="220" font-size="15" font-family="monospace" fill="#4a4a4a">Active supplier status</text>
+  <text x="102" y="490" font-size="15" font-family="monospace" fill="#4a4a4a">Pending approval expiry</text>
+  <text x="102" y="520" font-size="15" font-family="monospace" fill="#4a4a4a">Duplicate request prevention</text>
+  <text x="472" y="490" font-size="15" font-family="monospace" fill="#4a4a4a">FAILED status</text>
+  <text x="472" y="520" font-size="15" font-family="monospace" fill="#4a4a4a">ProcessingError records</text>
+  <text x="842" y="490" font-size="15" font-family="monospace" fill="#4a4a4a">Lifecycle events</text>
+  <text x="842" y="520" font-size="15" font-family="monospace" fill="#4a4a4a">Reviewable controls</text>
+</svg>

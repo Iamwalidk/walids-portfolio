@@ -10,7 +10,7 @@ export type ExperienceItem = {
 
 export type CertificateItem = {
   title: string;
-  issuer: "IBM" | "Microsoft";
+  issuer: "AWS Training and Certification" | "IBM" | "Microsoft";
   credentialUrl: string;
 };
 
@@ -44,6 +44,12 @@ export const experienceItems: ExperienceItem[] = [
 ];
 
 export const certificates: CertificateItem[] = [
+  {
+    title: "AWS Certified Machine Learning - Specialty",
+    issuer: "AWS Training and Certification",
+    credentialUrl:
+      "https://www.credly.com/badges/4a331b2f-6011-4119-949e-cdc5de841492/linked_in_profile",
+  },
   {
     title: "Machine Learning with Python (V2)",
     issuer: "IBM",

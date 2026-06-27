@@ -28,8 +28,9 @@ export function ContactPanel() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Direct Contact</p>
           <h2 className="text-2xl font-semibold tracking-tight text-[var(--fg)]">Email is the fastest path.</h2>
           <p className="max-w-2xl text-sm leading-6 text-[var(--fg)]">
-            Reach out for ML, AI, or data engineering roles, project collaboration, or portfolio walkthroughs. This page
-            is intentionally direct: no web form, no delivery uncertainty, just a clear route to email or profile links.
+            Reach out for ML, AI, data, automation, QA automation, or Python backend roles, project collaboration, or
+            portfolio walkthroughs. This page is intentionally direct: no web form, no delivery uncertainty, just a clear
+            route to email or profile links.
           </p>
         </div>
 

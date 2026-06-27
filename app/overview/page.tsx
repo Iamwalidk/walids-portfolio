@@ -11,16 +11,16 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Overview",
   description:
-    "Walid Kaddouri portfolio overview for recruiters hiring ML, AI, and Data engineering roles.",
+    "Walid Kaddouri portfolio overview for recruiters hiring ML, AI, data, and automation engineering roles.",
   alternates: {
     canonical: "/overview",
   },
 };
 
 const proofPoints = [
-  "Production-minded ML/AI projects with documented tradeoffs and measurable outcomes.",
-  "Strong backend and data modeling focus (FastAPI, SQLite, TypeScript, SQL).",
-  "Engineering communication style built for cross-functional delivery and reliability.",
+  "Production-minded ML/AI and automation projects with documented tradeoffs and measurable outcomes.",
+  "Strong backend, API, and data modeling focus using Python, FastAPI, SQL, TypeScript, and practical workflow automation.",
+  "Engineering communication style built for cross-functional delivery, QA discipline, reliability, and business process improvement.",
 ];
 
 export default function OverviewPage() {
@@ -30,7 +30,7 @@ export default function OverviewPage() {
         <div className="space-y-6 lg:col-span-8">
           <PageHeader
             title="Overview"
-            description="I build ML/AI/data systems that are measurable, maintainable, and production-oriented."
+            description="I build ML/AI, data, and automation systems that are measurable, maintainable, and production-oriented."
           />
 
           <ul className="space-y-2 text-sm text-[var(--fg)]">
@@ -62,15 +62,15 @@ export default function OverviewPage() {
           <dl className="space-y-2 text-sm">
             <div>
               <dt className="text-[var(--muted)]">Target Roles</dt>
-              <dd>ML Engineer, AI Engineer, Data Engineer</dd>
+              <dd>ML Engineer, AI Engineer, Data Engineer, Automation Engineer, QA Automation Engineer</dd>
             </div>
             <div>
               <dt className="text-[var(--muted)]">Location</dt>
-              <dd>Warsaw (open to relocation / remote)</dd>
+              <dd>Warsaw, Poland (open to remote / hybrid opportunities and relocation when the role is a strong fit)</dd>
             </div>
             <div>
               <dt className="text-[var(--muted)]">Core Stack</dt>
-              <dd>Python, TypeScript, SQL, FastAPI, PyTorch</dd>
+              <dd>Python, FastAPI, SQL, TypeScript, PyTorch, Automation</dd>
             </div>
           </dl>
         </aside>

@@ -6,7 +6,7 @@ import { ProjectsExplorer } from "@/components/projects-explorer";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Case studies and engineering project breakdowns for ML/AI/Data systems.",
+  description: "Case studies and engineering project breakdowns for ML/AI, data, and automation systems.",
   alternates: {
     canonical: "/projects",
   },

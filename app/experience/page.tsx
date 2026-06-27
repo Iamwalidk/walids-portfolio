@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { PageHeader } from "@/components/page-header";
 import { Timeline } from "@/components/timeline";
-import { certificates, experienceItems } from "@/lib/experience";
+import { certificates, experienceItems, type CertificateItem } from "@/lib/experience";
 
 export const metadata: Metadata = {
   title: "Experience",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-function IssuerLogo({ issuer }: { issuer: "IBM" | "Microsoft" }) {
+function IssuerLogo({ issuer }: { issuer: CertificateItem["issuer"] }) {
   if (issuer === "IBM") {
     return (
       <svg viewBox="0 0 64 24" aria-hidden="true" className="h-5 w-auto" role="img">
@@ -23,6 +23,18 @@ function IssuerLogo({ issuer }: { issuer: "IBM" | "Microsoft" }) {
         <text x="32" y="16" textAnchor="middle" fontSize="10" fontFamily="monospace" fill="#0a0a0a">
           IBM
         </text>
+      </svg>
+    );
+  }
+
+  if (issuer === "AWS Training and Certification") {
+    return (
+      <svg viewBox="0 0 44 24" aria-hidden="true" className="h-5 w-auto" role="img">
+        <rect x="1" y="1" width="42" height="22" fill="none" stroke="#0a0a0a" />
+        <text x="22" y="14" textAnchor="middle" fontSize="9" fontFamily="monospace" fill="#0a0a0a">
+          AWS
+        </text>
+        <path d="M11 18c6 3 16 3 22 0" stroke="#0a0a0a" strokeWidth="1.2" fill="none" />
       </svg>
     );
   }

@@ -38,7 +38,11 @@ export const metadata: Metadata = {
     "ML Engineer",
     "AI Engineer",
     "Data Engineer",
+    "Automation Engineer",
+    "QA Automation Engineer",
     "Python",
+    "FastAPI",
+    "SQL",
     "Computer Vision",
   ],
   alternates: {

@@ -5,22 +5,22 @@ const defaultSiteUrl = "https://walids-portfolio.vercel.app";
 
 export const siteConfig = {
   name: "Walid Kaddouri",
-  siteTitle: "Walid Kaddouri | ML/AI/Data Engineer",
+  siteTitle: "Walid Kaddouri | ML/AI/Data & Automation Engineer",
   logo: "/images/brand/logo.png",
-  resumePath: "/walid-kaddouri-ml-resume-2026-03-29.pdf",
+  resumePath: "/Resume.pdf",
   description:
-    "Engineering-focused portfolio for ML, AI, and Data roles. Projects include architecture decisions, measurable outcomes, and production-minded tradeoffs.",
+    "Engineering-focused portfolio for ML, AI, data, and automation roles. Projects include architecture decisions, measurable outcomes, and production-minded tradeoffs.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? defaultSiteUrl,
   email: "kaddowalidpro@gmail.com",
   github: "https://github.com/Iamwalidk",
   linkedin: "https://www.linkedin.com/in/walid-kaddouri-917b42260/",
   version: "v1.0.0",
-  lastModified: "2026-03-29",
+  lastModified: "2026-06-27",
   statusBlock: {
-    status: "Open to ML / AI / Data roles",
+    status: "Open to ML / AI / Data / Automation roles",
     location: "Warsaw",
-    stack: "Python • TypeScript • SQL",
-    updated: "2026-03",
+    stack: "Python / FastAPI / SQL / TypeScript / Automation",
+    updated: "2026-06",
   },
 } as const;
 

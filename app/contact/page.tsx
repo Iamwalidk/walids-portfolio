@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/page-header";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Direct email, resume, and profile links for ML/AI/Data role opportunities and project collaboration.",
+  description: "Direct email, resume, and profile links for ML/AI/data, automation, and QA automation opportunities.",
   alternates: {
     canonical: "/contact",
   },
@@ -16,7 +16,7 @@ export default function ContactPage() {
     <div className="space-y-8">
       <PageHeader
         title="Contact"
-        description="Reach out directly for ML/AI/Data opportunities, project collaboration, or a portfolio walkthrough."
+        description="Reach out directly for ML/AI/data, automation, QA automation, or Python backend opportunities."
       />
       <ContactPanel />
     </div>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="640" stroke="#0a0a0a"/>
+  <rect x="100" y="130" width="240" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="480" y="130" width="240" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="860" y="130" width="240" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="250" y="430" width="260" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="690" y="430" width="260" height="120" fill="#fafafa" stroke="#0a0a0a"/>
+  <line x1="340" y1="190" x2="480" y2="190" stroke="#0a0a0a"/>
+  <line x1="720" y1="190" x2="860" y2="190" stroke="#0a0a0a"/>
+  <line x1="600" y1="250" x2="380" y2="430" stroke="#0a0a0a"/>
+  <line x1="600" y1="250" x2="820" y2="430" stroke="#0a0a0a"/>
+  <text x="126" y="185" font-size="16" font-family="monospace" fill="#0a0a0a">Email / RPA Intake</text>
+  <text x="525" y="185" font-size="16" font-family="monospace" fill="#0a0a0a">FastAPI API</text>
+  <text x="895" y="185" font-size="16" font-family="monospace" fill="#0a0a0a">React Dashboard</text>
+  <text x="282" y="485" font-size="16" font-family="monospace" fill="#0a0a0a">Validation Services</text>
+  <text x="728" y="485" font-size="16" font-family="monospace" fill="#0a0a0a">SQLAlchemy Store</text>
+  <text x="126" y="215" font-size="13" font-family="monospace" fill="#4a4a4a">PDF + metadata</text>
+  <text x="504" y="215" font-size="13" font-family="monospace" fill="#4a4a4a">auth, invoices, approvals</text>
+  <text x="888" y="215" font-size="13" font-family="monospace" fill="#4a4a4a">review, exceptions, audit</text>
+  <text x="276" y="515" font-size="13" font-family="monospace" fill="#4a4a4a">extraction, supplier rules</text>
+  <text x="718" y="515" font-size="13" font-family="monospace" fill="#4a4a4a">invoices, errors, events</text>
+</svg>

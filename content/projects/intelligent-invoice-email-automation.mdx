@@ -1,0 +1,41 @@
+---
+title: Intelligent Invoice & Email Automation Platform
+---
+
+## Problem
+
+Accounts payable invoice intake is often split across email, PDF attachments, supplier records, manual checks, approval follow-ups, and audit evidence. That creates slow processing, inconsistent validation, and weak recovery when an automated step fails.
+
+## Solution
+
+Built a full-stack intelligent automation platform that streamlines invoice processing from upload/email intake to validation, supplier verification, approval routing, and audit tracking. The system focuses on practical business automation needs: secure API access, document validation, idempotent uploads, invoice extraction, supplier lifecycle management, approval state handling, and reliable failure recovery.
+
+## Architecture
+
+- FastAPI backend with versioned REST endpoints for invoices, suppliers, approvals, reports, audit events, and processing errors.
+- SQLAlchemy domain models with Alembic migrations and a SQLite/PostgreSQL-ready persistence approach.
+- PDF validation using file type checks, magic-byte validation, hashing, size limits, and idempotent retry handling.
+- Extraction support for invoice date, amount, supplier/vendor, VAT/NIP, IBAN, and related metadata.
+- Supplier validation and lifecycle handling, including soft deactivation and invoice revalidation when critical supplier fields change.
+- Approval workflow with pending approval expiration when invoices stop qualifying, duplicate request prevention, and callback-oriented audit behavior.
+- Role-aware API key protection for sensitive and mutating endpoints, with development-only safeguards around approval simulation.
+- Processing failure handling through FAILED invoice state, audit events, and ProcessingError records.
+
+## Key Decisions
+
+- Kept business rules in the FastAPI backend so upload, email/RPA intake, manual review, and approval callbacks share the same validation behavior.
+- Used magic-byte PDF checks and file hashing to make invoice intake safer and retry behavior idempotent.
+- Implemented supplier soft deactivation instead of unsafe hard deletion so the platform preserves audit history and can revalidate impacted invoices.
+- Expired pending approvals when invoices stop qualifying to prevent stale approval state after supplier or validation changes.
+
+## Results / Metrics
+
+- Covers the full invoice lifecycle from intake through validation, approval, exception handling, and audit review.
+- Demonstrates backend quality concerns that matter in automation: secure endpoints, state transitions, failure tracking, and regression tests.
+- Supports realistic business-process automation boundaries for RPA/email intake and Power Automate-style approval callbacks.
+- Provides recruiter-visible evidence of Python/FastAPI backend engineering, QA automation thinking, and audit-oriented system design.
+
+## What this demonstrates
+
+- Ability to build practical automation systems beyond small scripts.
+- Strong alignment with Automation Engineer, QA Automation, RPA/AI Automation, Junior Backend, and AI/Data-adjacent roles.

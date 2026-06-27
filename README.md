@@ -1,6 +1,6 @@
 ﻿# Walid Kaddouri Portfolio
 
-Production-ready engineering portfolio for ML/AI/Data roles, built with Next.js App Router, TypeScript, Tailwind, shadcn/ui, and MDX.
+Production-ready engineering portfolio for ML/AI, data, and automation roles, built with Next.js App Router, TypeScript, Tailwind, shadcn/ui, and MDX.
 
 ## Stack
 
@@ -82,4 +82,4 @@ Use the repository slug `walids-portfolio` for a clean public URL and predictabl
 
 ## Resume File
 
-`public/walid-kaddouri-cv.pdf` is included as a placeholder so download/preview flows work. Replace it with your final CV before publishing.
+`public/Resume.pdf` is the public resume asset used by the download button, contact links, command palette, and embedded resume preview.
