@@ -13,5 +13,6 @@
 - `code-block.tsx`: Inverted code block rendering.
 - `copy-to-clipboard-button.tsx`: Reusable clipboard action.
 - `section-divider.tsx`: Lightweight 1px section separator.
-- `timeline.tsx`: Experience timeline component.
+- `timeline.tsx`: Experience timeline component with per-role tool chips.
+- `page-header.tsx`: Page header with mono path crumbs (breadcrumb nav when links are present), h1, and description.
 - `contact-panel.tsx`: Direct contact hub for email, resume, and profile links.

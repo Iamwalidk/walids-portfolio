@@ -24,7 +24,8 @@ Production-ready engineering portfolio for ML/AI, data, and automation roles, bu
 - Recruiter mode toggle (`Recruiter Summary` vs `Detailed View`) with localStorage persistence.
 - Project case studies include project-specific system visuals, key decisions/tradeoffs, and evidence panels.
 - Contact page uses direct email and profile links instead of a web form.
-- SEO setup: metadata per page, OpenGraph/Twitter metadata, sitemap, robots.
+- SEO setup: metadata per page, OpenGraph/Twitter metadata, JSON-LD Person schema, sitemap, robots.
+- Security headers (CSP, HSTS, nosniff, frame/referrer/permissions policies) via `next.config.ts`.
 - CI: install -> lint -> typecheck -> test -> build.
 
 ## Folder Highlights
@@ -33,7 +34,7 @@ Production-ready engineering portfolio for ML/AI, data, and automation roles, bu
 - `components/` reusable UI + feature components
 - `content/projects/index.ts` typed project model
 - `content/projects/*.mdx` project case-study content
-- `lib/` shared utilities, config, MDX loader, recruiter mode context, changelog, and experience data
+- `lib/` shared utilities, config, MDX loader, recruiter mode context, and experience data
 - `tests/` Vitest coverage for project-model logic
 - `.github/workflows/ci.yml` CI pipeline
 
