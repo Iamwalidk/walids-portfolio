@@ -1,14 +1,21 @@
-﻿// Updated experience ordering/dates and replaced placeholder certificates with issuer-logo credential cards.
+// Experience timeline, education, evidence-based skills, and credential cards.
 import type { Metadata } from "next";
 import Link from "next/link";
 
 import { PageHeader } from "@/components/page-header";
 import { Timeline } from "@/components/timeline";
-import { certificates, experienceItems, type CertificateItem } from "@/lib/experience";
+import {
+  certificates,
+  educationItems,
+  experienceItems,
+  skillGroups,
+  type CertificateItem,
+} from "@/lib/experience";
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: "Professional experience timeline and certifications for Walid Kaddouri.",
+  description:
+    "Professional experience, education, certifications, and evidence-based skills for Walid Kaddouri.",
   alternates: {
     canonical: "/experience",
   },
@@ -51,38 +58,99 @@ function IssuerLogo({ issuer }: { issuer: CertificateItem["issuer"] }) {
 
 export default function ExperiencePage() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <PageHeader
+        crumbs={[{ label: "~" }, { label: "experience" }]}
         title="Experience"
         description="A reliability-oriented progression across automation, QA, and AI-focused engineering work."
       />
 
       <Timeline items={experienceItems} />
 
-      <section className="rounded-md border border-[var(--border)] bg-[var(--surface)] p-5">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">Certificates</h2>
+      <section aria-labelledby="education-heading" className="rounded-md border border-[var(--border)] bg-[var(--surface)] p-5">
+        <h2 id="education-heading" className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
+          Education
+        </h2>
+        <div className="mt-4 space-y-3">
+          {educationItems.map((item) => (
+            <article key={item.institution} className="rounded-md border border-[var(--border)] bg-white p-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h3 className="text-sm font-semibold text-[var(--fg)]">{item.degree}</h3>
+                <span className="text-xs uppercase tracking-wide text-[var(--muted)]">{item.timeline}</span>
+              </div>
+              <p className="mt-1 text-sm text-[var(--fg)]">{item.specialization}</p>
+              <p className="mt-1 text-sm text-[var(--muted)]">
+                {item.institution} | {item.location}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="skills-heading" className="space-y-4">
+        <div className="space-y-1">
+          <h2 id="skills-heading" className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
+            Skills, with receipts
+          </h2>
+          <p className="text-sm text-[var(--muted)]">
+            Every skill below is tied to the role, project, or credential where it was actually exercised.
+          </p>
+        </div>
+        <div className="grid gap-3 md:grid-cols-2">
+          {skillGroups.map((group) => (
+            <article key={group.title} className="flex flex-col gap-3 rounded-md border border-[var(--border)] bg-white p-4">
+              <h3 className="text-sm font-semibold text-[var(--fg)]">{group.title}</h3>
+              <ul className="flex flex-wrap gap-1.5" aria-label={`${group.title} skills`}>
+                {group.skills.map((skill) => (
+                  <li
+                    key={skill}
+                    className="rounded-sm border border-[var(--border)] bg-[var(--surface)] px-2 py-0.5 font-mono text-[11px] text-[var(--fg)]"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-xs leading-5 text-[var(--muted)]">{group.evidence}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="certificates-heading" className="rounded-md border border-[var(--border)] bg-[var(--surface)] p-5">
+        <h2 id="certificates-heading" className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
+          Certificates
+        </h2>
 
         <div className="mt-4 grid gap-3">
           {certificates.map((certificate) => (
             <article key={certificate.title} className="rounded-md border border-[var(--border)] bg-white p-4">
               <div className="flex flex-wrap items-center justify-between gap-3">
-                <h3 className="text-sm font-semibold text-[var(--fg)]">{certificate.title}</h3>
+                <div>
+                  <h3 className="text-sm font-semibold text-[var(--fg)]">{certificate.title}</h3>
+                  {certificate.completed && (
+                    <p className="mt-0.5 text-xs text-[var(--muted)]">Completed {certificate.completed}</p>
+                  )}
+                </div>
                 <div className="inline-flex items-center gap-2 rounded-sm border border-[var(--border)] bg-[var(--surface)] px-2 py-1">
                   <IssuerLogo issuer={certificate.issuer} />
                   <span className="text-xs font-medium text-[var(--fg)]">{certificate.issuer}</span>
                 </div>
               </div>
 
-              <div className="mt-3">
-                <Link
-                  href={certificate.credentialUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex rounded-sm border border-black bg-black px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white no-underline hover:bg-black/90"
-                >
-                  View Credential
-                </Link>
-              </div>
+              <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{certificate.scope}</p>
+
+              {certificate.credentialUrl && (
+                <div className="mt-3">
+                  <Link
+                    href={certificate.credentialUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex rounded-sm border border-black bg-black px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-white no-underline hover:bg-black/90"
+                  >
+                    View Credential
+                  </Link>
+                </div>
+              )}
             </article>
           ))}
         </div>

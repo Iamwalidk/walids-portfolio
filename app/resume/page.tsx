@@ -1,5 +1,4 @@
 ﻿import type { Metadata } from "next";
-import Link from "next/link";
 
 import { PageHeader } from "@/components/page-header";
 import { Button } from "@/components/ui/button";
@@ -17,15 +16,21 @@ export default function ResumePage() {
   return (
     <div className="space-y-8">
       <PageHeader
+        crumbs={[{ label: "~" }, { label: "resume" }]}
         title="Resume"
         description="Download is always available. Embedded preview is included for quick recruiter review."
       />
 
       <div className="flex flex-wrap gap-3">
         <Button asChild className="h-10 rounded-sm bg-black px-4 text-xs uppercase tracking-wide text-white hover:bg-black/90">
-          <Link href={siteConfig.resumePath} target="_blank" rel="noreferrer">
-            Download CV
-          </Link>
+          <a href={siteConfig.resumePath} download="Walid-Kaddouri-Resume.pdf">
+            Download CV (PDF)
+          </a>
+        </Button>
+        <Button asChild variant="outline" className="h-10 rounded-sm border-[var(--border)] px-4 text-xs uppercase tracking-wide">
+          <a href={siteConfig.resumePath} target="_blank" rel="noreferrer">
+            Open in new tab
+          </a>
         </Button>
       </div>
 

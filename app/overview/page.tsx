@@ -2,7 +2,6 @@
 import Link from "next/link";
 
 import { featuredProjects } from "@/content/projects";
-import { PageHeader } from "@/components/page-header";
 import { ProjectCard } from "@/components/project-card";
 import { SectionDivider } from "@/components/section-divider";
 import { Button } from "@/components/ui/button";
@@ -28,10 +27,26 @@ export default function OverviewPage() {
     <div className="space-y-12">
       <section className="grid gap-8 border-b border-[var(--border)] pb-10 lg:grid-cols-12 lg:gap-10">
         <div className="space-y-6 lg:col-span-8">
-          <PageHeader
-            title="Overview"
-            description="I build ML/AI, data, and automation systems that are measurable, maintainable, and production-oriented."
-          />
+          <header className="space-y-4">
+            <p className="font-mono text-xs tracking-wide text-[var(--muted)]" aria-hidden="true">
+              ~ $ whoami
+              <span className="terminal-cursor" />
+            </p>
+            <h1 className="text-4xl font-semibold tracking-tight text-[var(--fg)] sm:text-5xl">
+              Walid Kaddouri
+            </h1>
+            <p className="max-w-2xl text-base leading-7 text-[var(--fg)] sm:text-lg">
+              I build ML/AI, data, and automation systems that are measurable, maintainable, and
+              production-oriented.
+            </p>
+            <p className="flex items-start gap-2 text-sm text-[var(--fg)]">
+              <span
+                aria-hidden="true"
+                className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#15803d] motion-safe:animate-pulse"
+              />
+              {siteConfig.statusBlock.status} — Warsaw or remote
+            </p>
+          </header>
 
           <ul className="space-y-2 text-sm text-[var(--fg)]">
             {proofPoints.map((point) => (
@@ -44,9 +59,9 @@ export default function OverviewPage() {
 
           <div className="flex flex-wrap gap-3">
             <Button asChild className="h-10 rounded-sm bg-black px-4 text-xs uppercase tracking-wide text-white hover:bg-black/90">
-              <Link href={siteConfig.resumePath} target="_blank" rel="noreferrer">
+              <a href={siteConfig.resumePath} download="Walid-Kaddouri-Resume.pdf">
                 Download CV
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="outline" className="h-10 rounded-sm border-[var(--border)] px-4 text-xs uppercase tracking-wide">
               <Link href="/contact">Contact</Link>
@@ -70,7 +85,7 @@ export default function OverviewPage() {
             </div>
             <div>
               <dt className="text-[var(--muted)]">Core Stack</dt>
-              <dd>Python, FastAPI, SQL, TypeScript, PyTorch, Automation</dd>
+              <dd>Python, FastAPI, SQL, scikit-learn, TensorFlow/Keras, TypeScript, Automation</dd>
             </div>
           </dl>
         </aside>

@@ -14,13 +14,13 @@ export const siteConfig = {
   email: "kaddowalidpro@gmail.com",
   github: "https://github.com/Iamwalidk",
   linkedin: "https://www.linkedin.com/in/walid-kaddouri-917b42260/",
-  version: "v1.0.0",
-  lastModified: "2026-06-27",
+  version: "v1.1.0",
+  lastModified: "2026-07-04",
   statusBlock: {
     status: "Open to ML / AI / Data / Automation roles",
     location: "Warsaw",
     stack: "Python / FastAPI / SQL / TypeScript / Automation",
-    updated: "2026-06",
+    updated: "2026-07",
   },
 } as const;
 

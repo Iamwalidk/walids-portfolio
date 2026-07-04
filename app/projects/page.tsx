@@ -16,6 +16,7 @@ export default function ProjectsPage() {
   return (
     <div className="space-y-8">
       <PageHeader
+        crumbs={[{ label: "~" }, { label: "projects" }]}
         title="Projects"
         description="Each project is documented as a case study with architecture thinking, measured outcomes, and explicit tradeoffs."
       />

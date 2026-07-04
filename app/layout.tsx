@@ -45,20 +45,19 @@ export const metadata: Metadata = {
     "SQL",
     "Computer Vision",
   ],
-  alternates: {
-    canonical: "/overview",
-  },
   openGraph: {
     title: siteConfig.siteTitle,
     description: siteConfig.description,
     type: "website",
     url: siteConfig.url,
     siteName: "Walid Kaddouri Portfolio",
+    images: [{ url: siteConfig.logo, alt: "Walid Kaddouri logo" }],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: siteConfig.siteTitle,
     description: siteConfig.description,
+    images: [siteConfig.logo],
   },
   other: {
     "contact:email": siteConfig.email,
@@ -71,12 +70,39 @@ export const metadata: Metadata = {
   },
 };
 
+// Static Person schema for rich results; every value comes from siteConfig,
+// never from user input.
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: siteConfig.name,
+  email: `mailto:${siteConfig.email}`,
+  url: siteConfig.url,
+  jobTitle: "ML/AI, Data & Automation Engineer",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Warsaw",
+    addressCountry: "PL",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Vistula University",
+  },
+  sameAs: [siteConfig.github, siteConfig.linkedin],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${ibmPlexSans.variable} ${ibmPlexMono.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <Providers>
           <SidebarLayout>{children}</SidebarLayout>
         </Providers>

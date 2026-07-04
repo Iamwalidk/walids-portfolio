@@ -142,14 +142,14 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
       </a>
 
       <div className="mx-auto flex max-w-[1200px]">
-        <aside className="sticky top-0 hidden h-screen w-[280px] shrink-0 border-r border-[var(--border)] bg-white px-4 py-6 lg:flex lg:flex-col">
+        <aside className="print-hidden sticky top-0 hidden h-screen w-[280px] shrink-0 border-r border-[var(--border)] bg-white px-4 py-6 lg:flex lg:flex-col">
           <SidebarNav pathname={pathname} />
           <Separator className="my-4" />
           <SystemStatusBlock />
         </aside>
 
         <div className="flex min-h-screen min-w-0 flex-1 flex-col">
-          <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-white/95 backdrop-blur-sm">
+          <header className="print-hidden sticky top-0 z-40 border-b border-[var(--border)] bg-white/95 backdrop-blur-sm">
             <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-8">
               <div className="flex items-center gap-2 lg:hidden">
                 <Button
@@ -184,11 +184,20 @@ export function SidebarLayout({ children }: { children: React.ReactNode }) {
             <div className="mx-auto w-full max-w-[1120px]">{children}</div>
           </main>
 
-          <footer className="border-t border-[var(--border)] px-4 py-4 text-xs text-[var(--muted)] sm:px-8">
-            <div className="mx-auto flex max-w-[1120px] flex-wrap items-center justify-between gap-2">
+          <footer className="print-hidden border-t border-[var(--border)] px-4 py-4 text-xs text-[var(--muted)] sm:px-8">
+            <div className="mx-auto flex max-w-[1120px] flex-wrap items-center justify-between gap-x-6 gap-y-2">
               <p>Built with Next.js, TypeScript, Tailwind, shadcn/ui, and MDX.</p>
-              <p>
-                Accessibility-first. Lighthouse target: Performance 90+ | Accessibility 95+.{" "}
+              <p className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                <span className="font-mono">
+                  <kbd className="rounded-sm border border-[var(--border)] px-1 py-0.5 text-[10px]">Ctrl+K</kbd> palette
+                </span>
+                <span className="font-mono">
+                  <kbd className="rounded-sm border border-[var(--border)] px-1 py-0.5 text-[10px]">g</kbd>{" "}
+                  <kbd className="rounded-sm border border-[var(--border)] px-1 py-0.5 text-[10px]">p</kbd> projects
+                </span>
+                <span className="font-mono">
+                  <kbd className="rounded-sm border border-[var(--border)] px-1 py-0.5 text-[10px]">/</kbd> search
+                </span>
                 <a href={`mailto:${siteConfig.email}`} className="hover:underline">
                   {siteConfig.email}
                 </a>

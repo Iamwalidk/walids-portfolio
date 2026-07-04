@@ -51,7 +51,15 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
   return (
     <div className="space-y-8">
-      <PageHeader title={project.title} description={project.description} />
+      <PageHeader
+        crumbs={[
+          { label: "~" },
+          { label: "projects", href: "/projects" },
+          { label: project.slug },
+        ]}
+        title={project.title}
+        description={project.description}
+      />
 
       <section className="grid gap-6 rounded-md border border-[var(--border)] bg-white p-5 lg:grid-cols-12">
         <div className="space-y-4 lg:col-span-8">

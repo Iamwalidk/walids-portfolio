@@ -15,6 +15,7 @@ export default function ContactPage() {
   return (
     <div className="space-y-8">
       <PageHeader
+        crumbs={[{ label: "~" }, { label: "contact" }]}
         title="Contact"
         description="Reach out directly for ML/AI/data, automation, QA automation, or Python backend opportunities."
       />

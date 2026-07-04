@@ -26,6 +26,16 @@ export function Timeline({ items }: { items: ExperienceItem[] }) {
                 </li>
               ))}
             </ul>
+            <ul className="flex flex-wrap gap-1.5 pt-1" aria-label={`Tools used at ${item.company}`}>
+              {item.tools.map((tool) => (
+                <li
+                  key={tool}
+                  className="rounded-sm border border-[var(--border)] bg-[var(--surface)] px-2 py-0.5 font-mono text-[11px] text-[var(--fg)]"
+                >
+                  {tool}
+                </li>
+              ))}
+            </ul>
           </div>
         </li>
       ))}
