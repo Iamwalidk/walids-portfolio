@@ -63,7 +63,7 @@ export const experienceItems: ExperienceItem[] = [
     title: "Software QA Tester",
     company: "Lionbridge",
     location: "Warsaw, Poland",
-    timeline: "September 2025 -> Present",
+    timeline: "September 2025 -> July 2026",
     summary:
       "Software testing on client engagements for Sony and Housemarque, working to client quality standards where reproducibility, clear defect communication, and confidentiality are the baseline.",
     achievements: [
