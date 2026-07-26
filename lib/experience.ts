@@ -65,11 +65,11 @@ export const experienceItems: ExperienceItem[] = [
     location: "Warsaw, Poland",
     timeline: "September 2025 -> July 2026",
     summary:
-      "Software testing on client engagements for Sony and Housemarque, working to client quality standards where reproducibility, clear defect communication, and confidentiality are the baseline.",
+      "Software testing on client engagements for Sony and Housemarque, working to client quality standards where reproducibility, clear defect communication, and confidentiality were the baseline.",
     achievements: [
-      "Execute functional, regression, exploratory, and cross-platform test cycles against product features, UI behavior, and edge cases.",
-      "Report and track defects in Jira and Confluence with reliable reproduction steps, expected versus actual results, severity context, and supporting evidence.",
-      "Support verification cycles by retesting fixes and confirming that changes do not introduce regressions in related areas of the product.",
+      "Executed functional, regression, exploratory, and cross-platform test cycles against product features, UI behavior, and edge cases.",
+      "Reported and tracked defects in Jira and Confluence with reliable reproduction steps, expected versus actual results, severity context, and supporting evidence.",
+      "Supported verification cycles by retesting fixes and confirming that changes did not introduce regressions in related areas of the product.",
     ],
     tools: [
       "Jira",
