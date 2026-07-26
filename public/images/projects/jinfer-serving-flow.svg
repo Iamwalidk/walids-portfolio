@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" fill="none">
+  <rect width="1200" height="720" fill="#ffffff"/>
+  <rect x="40" y="40" width="1120" height="640" stroke="#0a0a0a"/>
+
+  <text x="80" y="100" font-size="14" font-family="monospace" fill="#4a4a4a">TRAIN TIME</text>
+  <line x1="80" y1="115" x2="1120" y2="115" stroke="#e6e6e6"/>
+
+  <rect x="80" y="145" width="300" height="90" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="450" y="145" width="300" height="90" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="820" y="145" width="300" height="90" fill="#fafafa" stroke="#0a0a0a"/>
+  <line x1="380" y1="190" x2="450" y2="190" stroke="#0a0a0a"/>
+  <line x1="750" y1="190" x2="820" y2="190" stroke="#0a0a0a"/>
+
+  <text x="102" y="185" font-size="16" font-family="monospace" fill="#0a0a0a">Python training</text>
+  <text x="102" y="208" font-size="13" font-family="monospace" fill="#4a4a4a">scikit-learn / Keras</text>
+  <text x="472" y="185" font-size="16" font-family="monospace" fill="#0a0a0a">Export to ONNX</text>
+  <text x="472" y="208" font-size="13" font-family="monospace" fill="#4a4a4a">skl2onnx / tf2onnx</text>
+  <text x="842" y="185" font-size="16" font-family="monospace" fill="#0a0a0a">.onnx artifact</text>
+  <text x="842" y="208" font-size="13" font-family="monospace" fill="#4a4a4a">frozen tensor contract</text>
+
+  <text x="80" y="300" font-size="14" font-family="monospace" fill="#4a4a4a">SERVE TIME (JVM)</text>
+  <line x1="80" y1="315" x2="1120" y2="315" stroke="#e6e6e6"/>
+
+  <rect x="80" y="345" width="1040" height="80" fill="#f4f4f4" stroke="#0a0a0a"/>
+  <text x="102" y="378" font-size="16" font-family="monospace" fill="#0a0a0a">Startup: load session + validate declared input shape</text>
+  <text x="102" y="401" font-size="13" font-family="monospace" fill="#4a4a4a">schema drift fails the deployment, not a live request</text>
+
+  <rect x="80" y="465" width="300" height="90" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="450" y="465" width="300" height="90" fill="#fafafa" stroke="#0a0a0a"/>
+  <rect x="820" y="465" width="300" height="90" fill="#fafafa" stroke="#0a0a0a"/>
+  <line x1="380" y1="510" x2="450" y2="510" stroke="#0a0a0a"/>
+  <line x1="750" y1="510" x2="820" y2="510" stroke="#0a0a0a"/>
+
+  <text x="102" y="505" font-size="16" font-family="monospace" fill="#0a0a0a">Request persisted</text>
+  <text x="102" y="528" font-size="13" font-family="monospace" fill="#4a4a4a">status PENDING</text>
+  <text x="472" y="505" font-size="16" font-family="monospace" fill="#0a0a0a">Score in-process</text>
+  <text x="472" y="528" font-size="13" font-family="monospace" fill="#4a4a4a">ONNX Runtime session</text>
+  <text x="842" y="505" font-size="16" font-family="monospace" fill="#0a0a0a">Result + rationale</text>
+  <text x="842" y="528" font-size="13" font-family="monospace" fill="#4a4a4a">COMPLETED or FAILED</text>
+
+  <rect x="80" y="595" width="1040" height="60" fill="#fafafa" stroke="#0a0a0a"/>
+  <text x="102" y="632" font-size="13" font-family="monospace" fill="#4a4a4a">Deterministic rules-based rationale - identical inputs produce identical text - full history queryable</text>
+</svg>

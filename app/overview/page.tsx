@@ -17,9 +17,9 @@ export const metadata: Metadata = {
 };
 
 const proofPoints = [
-  "Production-minded ML/AI and automation projects with documented tradeoffs and measurable outcomes.",
-  "Strong backend, API, and data modeling focus using Python, FastAPI, SQL, TypeScript, and practical workflow automation.",
-  "Engineering communication style built for cross-functional delivery, QA discipline, reliability, and business process improvement.",
+  "Production-minded backend and ML serving work across the JVM and Python, with migrations, infrastructure as code, CI, and metrics in the projects themselves.",
+  "An automation and QA background that treats reliability as a requirement: process automation at Rhenus, client-standard software testing at Lionbridge.",
+  "Comfortable on the business side of delivery: requirements analysis, stakeholder demos, and documentation, in Arabic, French, or English.",
 ];
 
 export default function OverviewPage() {
@@ -36,15 +36,15 @@ export default function OverviewPage() {
               Walid Kaddouri
             </h1>
             <p className="max-w-2xl text-base leading-7 text-[var(--fg)] sm:text-lg">
-              I build ML/AI, data, and automation systems that are measurable, maintainable, and
-              production-oriented.
+              I build backend and ML systems that are tested, documented, and explainable, then
+              explain them to the people who have to sign off.
             </p>
             <p className="flex items-start gap-2 text-sm text-[var(--fg)]">
               <span
                 aria-hidden="true"
                 className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#15803d] motion-safe:animate-pulse"
               />
-              {siteConfig.statusBlock.status} — Warsaw or remote
+              {siteConfig.statusBlock.status}. Warsaw or remote.
             </p>
           </header>
 
@@ -77,15 +77,23 @@ export default function OverviewPage() {
           <dl className="space-y-2 text-sm">
             <div>
               <dt className="text-[var(--muted)]">Target Roles</dt>
-              <dd>ML Engineer, AI Engineer, Data Engineer, Automation Engineer, QA Automation Engineer</dd>
+              <dd>Backend, ML/AI, Data, Automation, and QA Automation Engineer</dd>
             </div>
             <div>
-              <dt className="text-[var(--muted)]">Location</dt>
-              <dd>Warsaw, Poland (open to remote / hybrid opportunities and relocation when the role is a strong fit)</dd>
+              <dt className="text-[var(--muted)]">Also Open To</dt>
+              <dd>Technical Business Analyst, Solutions / Application Support Engineer</dd>
             </div>
             <div>
               <dt className="text-[var(--muted)]">Core Stack</dt>
-              <dd>Python, FastAPI, SQL, scikit-learn, TensorFlow/Keras, TypeScript, Automation</dd>
+              <dd>Java, Spring Boot, Python, FastAPI, SQL, Docker, Terraform</dd>
+            </div>
+            <div>
+              <dt className="text-[var(--muted)]">Languages</dt>
+              <dd>Arabic and French (native-level), English (C2)</dd>
+            </div>
+            <div>
+              <dt className="text-[var(--muted)]">Location</dt>
+              <dd>Warsaw, Poland. Open to remote, hybrid, and relocation for a strong fit.</dd>
             </div>
           </dl>
         </aside>
@@ -109,16 +117,25 @@ export default function OverviewPage() {
 
       <section className="grid gap-4 rounded-md border border-[var(--border)] bg-white p-5 md:grid-cols-3">
         <div>
-          <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Architecture mindset</h3>
-          <p className="mt-2 text-sm">Clear service boundaries, typed contracts, and iterative decision logs.</p>
+          <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Decisions on record</h3>
+          <p className="mt-2 text-sm">
+            Architecture choices are written down with their tradeoffs, as ADRs in JInfer and decision tables in every
+            case study here.
+          </p>
         </div>
         <div>
-          <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Execution style</h3>
-          <p className="mt-2 text-sm">Fast delivery with measurable checkpoints and regression-safe changes.</p>
+          <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Tested against reality</h3>
+          <p className="mt-2 text-sm">
+            Integration tests run on real PostgreSQL and Kafka containers rather than in-memory substitutes, behind
+            build-enforced coverage gates.
+          </p>
         </div>
         <div>
-          <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Quality</h3>
-          <p className="mt-2 text-sm">Accessibility-first UI, clean URLs, static generation, CI-enforced checks.</p>
+          <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Built to hand over</h3>
+          <p className="mt-2 text-sm">
+            Architecture references, API docs, and decision records ship with the code, so someone else can pick the
+            work up.
+          </p>
         </div>
       </section>
     </div>

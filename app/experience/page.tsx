@@ -8,6 +8,8 @@ import {
   certificates,
   educationItems,
   experienceItems,
+  languages,
+  professionalStrengths,
   skillGroups,
   type CertificateItem,
 } from "@/lib/experience";
@@ -62,10 +64,15 @@ export default function ExperiencePage() {
       <PageHeader
         crumbs={[{ label: "~" }, { label: "experience" }]}
         title="Experience"
-        description="A reliability-oriented progression across automation, QA, and AI-focused engineering work."
+        description="A progression from process automation and QA into backend and ML engineering, with the business-facing side of the work carried through all of it."
       />
 
-      <Timeline items={experienceItems} />
+      <section aria-labelledby="roles-heading" className="space-y-4">
+        <h2 id="roles-heading" className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
+          Roles
+        </h2>
+        <Timeline items={experienceItems} />
+      </section>
 
       <section aria-labelledby="education-heading" className="rounded-md border border-[var(--border)] bg-[var(--surface)] p-5">
         <h2 id="education-heading" className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
@@ -116,6 +123,50 @@ export default function ExperiencePage() {
         </div>
       </section>
 
+      <section aria-labelledby="strengths-heading" className="space-y-4">
+        <div className="space-y-1">
+          <h2 id="strengths-heading" className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
+            Beyond the code
+          </h2>
+          <p className="text-sm text-[var(--muted)]">
+            The parts of the job that decide whether the engineering actually lands.
+          </p>
+        </div>
+
+        <div className="grid gap-3 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]">
+          <div className="rounded-md border border-[var(--border)] bg-white p-4">
+            <h3 className="text-sm font-semibold text-[var(--fg)]">Working strengths</h3>
+            <dl className="mt-3 space-y-3">
+              {professionalStrengths.map((strength) => (
+                <div key={strength.title}>
+                  <dt className="text-sm font-semibold text-[var(--fg)]">{strength.title}</dt>
+                  <dd className="mt-0.5 text-xs leading-5 text-[var(--muted)]">{strength.detail}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="rounded-md border border-[var(--border)] bg-white p-4">
+            <h3 className="text-sm font-semibold text-[var(--fg)]">Languages</h3>
+            <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
+              Works, documents, and presents professionally in Arabic, French, and English. Useful on multinational,
+              client-facing, and localization work.
+            </p>
+            <dl className="mt-3 space-y-1.5">
+              {languages.map((item) => (
+                <div
+                  key={item.language}
+                  className="flex items-baseline justify-between gap-3 border-b border-[var(--border)] pb-1.5 last:border-0 last:pb-0"
+                >
+                  <dt className="text-sm text-[var(--fg)]">{item.language}</dt>
+                  <dd className="font-mono text-[11px] text-[var(--muted)]">{item.level}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+
       <section aria-labelledby="certificates-heading" className="rounded-md border border-[var(--border)] bg-[var(--surface)] p-5">
         <h2 id="certificates-heading" className="text-sm font-semibold uppercase tracking-wide text-[var(--muted)]">
           Certificates
@@ -130,6 +181,7 @@ export default function ExperiencePage() {
                   {certificate.completed && (
                     <p className="mt-0.5 text-xs text-[var(--muted)]">Completed {certificate.completed}</p>
                   )}
+                  {certificate.note && <p className="mt-0.5 text-xs text-[var(--muted)]">{certificate.note}</p>}
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-sm border border-[var(--border)] bg-[var(--surface)] px-2 py-1">
                   <IssuerLogo issuer={certificate.issuer} />

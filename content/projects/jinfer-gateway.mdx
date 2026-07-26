@@ -1,0 +1,46 @@
+---
+title: JInfer - JVM ML Inference Gateway
+---
+
+## Problem
+
+Machine-learning models are trained in Python, but the services that need their predictions often run on the JVM. The standard bridge is a separate Python model server called over HTTP, which means a second service to build, scale, secure, and keep protocol-compatible, plus a network hop on every prediction. The model contract also tends to live in tribal knowledge rather than anywhere the deployment can check.
+
+## Solution
+
+JInfer treats a model as a file with a documented tensor interface. Models are exported to ONNX at training time and executed inside the JVM by ONNX Runtime, behind two scoring styles that share a single code path: inline REST and fire-and-forget Kafka. Every request and result is persisted to PostgreSQL, so the inference history is queryable and auditable rather than lost in logs.
+
+## Architecture
+
+- Spring Boot 3.3 on Java 21, organized as a modular monolith with enforced layers: `api` to `application` to `domain`, with `infrastructure` adapters behind ports.
+- `ModelRunner` and `InferenceEventPublisher` are interfaces in the application layer, implemented by ONNX Runtime and Kafka adapters, so both are swappable without touching orchestration.
+- Config-driven model registry: an `.onnx` file plus a `jinfer.models` entry registers a model, with no code change.
+- API-key authentication with `READ`, `PREDICT`, and `ADMIN` roles; only SHA-256 hashes of keys are stored.
+- PostgreSQL 16 with Flyway migrations and `ddl-auto: validate`, so schema changes are versioned rather than inferred.
+- Observability through Spring Actuator health probes, Micrometer, and Prometheus metrics including inference latency and count.
+- Multi-stage Docker build, Docker Compose for local runs, GitHub Actions for CI, and Terraform for the AWS footprint (ECS Fargate, RDS, MSK Serverless, ALB, Secrets Manager).
+
+## Key Decisions
+
+- Ran ONNX in-process instead of a Python sidecar: one runtime to operate and no network hop, at the cost of requiring ONNX-exportable models.
+- Kept one deployable with strict internal layers rather than splitting into microservices, because the sync and async paths share a single transactional scoring method.
+- Chose Kafka over a plain queue so results form a replayable broadcast log that future consumers can read independently.
+- Saved each state change in its own transaction so a `FAILED` status survives the failure that produced it, instead of being rolled back with it.
+- Generated rationales from fixed rules rather than a language model, so identical inputs always produce identical explanations.
+
+## Results / Metrics
+
+- In-process scoring measured at roughly 1-15 ms per prediction in local runs.
+- Two distinct tensor contracts exercised end to end: a six-feature numeric regression scorer and a 224x224 RGB image classifier.
+- Integration tests run against real PostgreSQL and Kafka containers via Testcontainers, keeping schema and messaging behavior identical to production.
+- Build-enforced quality gates: Spotless formatting, Checkstyle, and a JaCoCo coverage threshold on the application and domain layers.
+
+## Scope and limitations
+
+The committed model artifacts are fixture files that implement the real tensor interfaces, so the serving path, contract validation, and audit trail are fully exercised while prediction quality itself is not the point of this repository. Async scoring accepts JSON-input models only, since routing images through Kafka would bloat messages. Both boundaries are documented in the repository alongside the roadmap that addresses them.
+
+## What this demonstrates
+
+- Production JVM backend work: layered architecture, transactional boundaries, role-based authentication, versioned migrations, and RFC 7807 error contracts.
+- ML systems thinking beyond model training, covering serving, contract validation, reproducibility, and auditability.
+- Operational ownership across containerization, infrastructure as code, CI/CD, and metrics, with the tradeoffs written down as architecture decision records.

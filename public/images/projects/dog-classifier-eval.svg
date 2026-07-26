@@ -8,7 +8,7 @@
   <text x="660" y="140" font-size="18" font-family="monospace" fill="#0a0a0a">Validation Snapshot</text>
   <text x="660" y="440" font-size="18" font-family="monospace" fill="#0a0a0a">Class Mapping + Inference Prep</text>
   <text x="120" y="200" font-size="16" font-family="monospace" fill="#0a0a0a">1. Augment training images</text>
-  <text x="120" y="250" font-size="16" font-family="monospace" fill="#0a0a0a">2. Fine-tune MobileNetV2 head</text>
+  <text x="120" y="250" font-size="16" font-family="monospace" fill="#0a0a0a">2. Fine-tune EfficientNetV2S head</text>
   <text x="120" y="300" font-size="16" font-family="monospace" fill="#0a0a0a">3. Export .h5 model artifact</text>
   <text x="120" y="350" font-size="16" font-family="monospace" fill="#0a0a0a">4. Persist index_to_class.json</text>
   <text x="660" y="210" font-size="16" font-family="monospace" fill="#0a0a0a">Notebook tracks validation loss</text>

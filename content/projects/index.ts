@@ -2,6 +2,7 @@ import type { StaticImageData } from "next/image";
 
 import dogBreedImg from "@/assets/projects/dogbreed-thumbnail.png";
 import invoiceAutomationImg from "@/assets/projects/invoice-automation-thumbnail.png";
+import jinferImg from "@/assets/projects/jinfer-thumbnail.png";
 import optimatimeImg from "@/assets/projects/optimatime-thumbnail.png";
 
 export type ProjectDecision = {
@@ -40,6 +41,105 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "jinfer-gateway",
+    title: "JInfer - JVM ML Inference Gateway",
+    description:
+      "Spring Boot service that serves ONNX-exported models in-process on the JVM, over synchronous REST and asynchronous Kafka, persisting an auditable rationale for every prediction. No Python in the request path.",
+    image: jinferImg,
+    imageAlt:
+      "JInfer architecture overview showing REST and Kafka scoring paths feeding an in-process ONNX Runtime and a PostgreSQL audit trail",
+    role: "Backend and ML Platform Engineer",
+    timeline: "2026",
+    stack: [
+      "Java 21",
+      "Spring Boot 3.3",
+      "ONNX Runtime",
+      "PostgreSQL 16 + Flyway",
+      "Apache Kafka",
+      "Testcontainers",
+      "Docker",
+      "Terraform (AWS)",
+    ],
+    tags: [
+      "ML Serving",
+      "Backend Infrastructure",
+      "Java",
+      "Spring Boot",
+      "Kafka",
+      "Terraform",
+      "Observability",
+    ],
+    github: "https://github.com/Iamwalidk/jinfer-gateway",
+    highlights: [
+      "Runs ONNX models inside the JVM via ONNX Runtime, removing the Python sidecar and the network hop from the request path (1-15 ms per prediction observed locally).",
+      "Serves the same scoring routine over two transports: inline REST and fire-and-forget Kafka, so behavior, persistence, and metrics stay identical across both.",
+      "Made the served model set config-driven: an .onnx file plus a YAML entry adds a model, and the declared tensor contract is validated at startup so schema drift fails the deployment instead of a live request.",
+      "Provisioned the AWS footprint in Terraform (ECS Fargate, RDS, MSK Serverless, ALB, Secrets Manager) with GitHub Actions building and publishing images via OIDC.",
+    ],
+    metrics: [
+      "Persists every request and result to PostgreSQL, so the full inference history is queryable and auditable.",
+      "Generates deterministic, rules-based rationales: identical inputs always produce identical explanations, asserted directly in tests.",
+      "Enforces quality in the build with Spotless, Checkstyle, and a JaCoCo coverage gate on the application and domain layers.",
+      "Runs integration tests against real PostgreSQL and Kafka containers through Testcontainers rather than an in-memory substitute.",
+    ],
+    screenshots: [
+      {
+        src: "/images/projects/jinfer-serving-flow.svg",
+        alt: "JInfer serving flow from Python training and ONNX export through startup contract validation to in-process scoring and a persisted result",
+      },
+      {
+        src: "/images/projects/jinfer-architecture.svg",
+        alt: "JInfer architecture showing REST and async clients behind an API-key filter, a shared inference service, and ONNX Runtime, PostgreSQL, and Kafka backends",
+      },
+    ],
+    featured: true,
+    recruiterSummary: {
+      problem:
+        "Models are trained in Python but consumed by JVM services. The usual answer is a separate Python model server, which adds a service to build, scale, secure, and keep protocol-compatible, plus a network hop on every prediction.",
+      solution:
+        "Built a Spring Boot gateway that treats a model as a file with a documented tensor interface: exported to ONNX at training time and executed in-process by ONNX Runtime, behind REST and Kafka entry points with a persisted audit trail.",
+      outcomes: [
+        "One deployable and one runtime to operate instead of two, with the model contract frozen and checked at boot.",
+        "Every prediction is reproducible and reviewable after the fact, which matters where decisions need to be explained.",
+        "Demonstrates production backend concerns end to end: layered architecture, API-key roles, migrations, metrics, containerization, IaC, and CI.",
+      ],
+    },
+    dataFlow: [
+      "A model is trained in Python and exported to ONNX (skl2onnx or tf2onnx), producing an artifact with a fixed tensor interface.",
+      "At startup the service loads each configured model's ONNX session, validates its declared input shape, and syncs the model catalog into PostgreSQL.",
+      "An API-key filter hashes the incoming key (SHA-256), resolves the client, and applies its READ, PREDICT, or ADMIN role.",
+      "The request is persisted as PENDING, scored in-process by ONNX Runtime, then written back with a result and a deterministic rationale as COMPLETED or FAILED.",
+      "Async submissions travel the same scoring path via Kafka, with request and result events published to topics that consumers can replay independently.",
+    ],
+    keyDecisions: [
+      {
+        decision: "ONNX in the JVM instead of a Python sidecar",
+        tradeoff:
+          "Models must be exportable to ONNX, and the tensor contract has to be frozen at export time.",
+        rationale:
+          "Keeps scoring in-process and low-latency, and leaves one runtime to deploy, secure, and monitor rather than two.",
+      },
+      {
+        decision: "Modular monolith with enforced internal layers",
+        tradeoff: "One deployable scales as a unit rather than per-component.",
+        rationale:
+          "The sync and async paths share one transactional scoring method; splitting them into services would create a distributed transaction for no current scaling benefit.",
+      },
+      {
+        decision: "Kafka over a plain queue for the async path",
+        tradeoff: "A broker is heavier to run locally and in cloud than a managed queue.",
+        rationale:
+          "Results become a broadcast log that any future consumer can replay with its own group, and Testcontainers gives the same semantics in tests as in production.",
+      },
+      {
+        decision: "Per-save transactions in the scoring path",
+        tradeoff: "More database round trips than a single wrapping transaction.",
+        rationale:
+          "A single transaction would roll back the FAILED status along with the failure that caused it, destroying the audit trail exactly when it is most needed.",
+      },
+    ],
+  },
   {
     slug: "intelligent-invoice-email-automation",
     title: "Intelligent Invoice & Email Automation Platform",
@@ -207,16 +307,16 @@ export const projects: Project[] = [
     slug: "dog-breed-classifier",
     title: "Dog Breed Classifier",
     description:
-      "Flask web app for dog-breed recognition using a fine-tuned MobileNetV2 model with TensorFlow/Keras inference and confidence output.",
+      "Flask web app for dog-breed recognition using a fine-tuned EfficientNetV2S model with TensorFlow/Keras inference and confidence output.",
     image: dogBreedImg,
     imageAlt: "Dog Breed Classifier interface with an uploaded dog photo and breed prediction result",
     role: "ML Engineer",
     timeline: "2024",
-    stack: ["Python", "Flask", "TensorFlow/Keras", "MobileNetV2", "OpenCV", "NumPy"],
-    tags: ["Computer Vision", "Flask", "TensorFlow", "Keras", "MobileNetV2", "OpenCV"],
+    stack: ["Python", "Flask", "TensorFlow/Keras", "EfficientNetV2S", "OpenCV", "NumPy"],
+    tags: ["Computer Vision", "Flask", "TensorFlow", "Keras", "EfficientNetV2S", "OpenCV"],
     github: "https://github.com/Iamwalidk/Dog-breed-classifier",
     highlights: [
-      "Fine-tuned a MobileNetV2 transfer-learning model in TensorFlow/Keras with augmentation-driven training workflow.",
+      "Fine-tuned an EfficientNetV2S transfer-learning model in TensorFlow/Keras with augmentation-driven training workflow.",
       "Implemented Flask endpoints for image upload and prediction, bridging notebook experimentation into a usable web app.",
       "Added OpenCV preprocessing (read, resize, normalize) before inference to keep runtime inputs consistent.",
       "Returns predicted breed plus confidence in the UI for faster human validation of model outputs.",
@@ -241,7 +341,7 @@ export const projects: Project[] = [
       problem:
         "Many computer-vision demos stop at notebooks and never expose prediction behavior in a user-facing workflow.",
       solution:
-        "Built a Flask inference app around a fine-tuned MobileNetV2 model, with OpenCV preprocessing and TensorFlow/Keras prediction serving.",
+        "Built a Flask inference app around a fine-tuned EfficientNetV2S model, with OpenCV preprocessing and TensorFlow/Keras prediction serving.",
       outcomes: [
         "Turns experimentation artifacts into an accessible upload-to-prediction product.",
         "Makes model behavior easier to review by surfacing confidence alongside labels.",
@@ -257,7 +357,7 @@ export const projects: Project[] = [
     ],
     keyDecisions: [
       {
-        decision: "MobileNetV2 transfer learning",
+        decision: "EfficientNetV2S transfer learning",
         tradeoff: "Less architectural novelty than designing a custom CNN.",
         rationale: "Fast path to strong CV baseline performance with limited training resources.",
       },
